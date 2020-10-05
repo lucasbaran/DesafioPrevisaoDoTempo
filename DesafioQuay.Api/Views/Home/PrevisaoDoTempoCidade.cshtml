@@ -1,0 +1,31 @@
+﻿@model DesafioQuay.Domain.PrevisaoDTO
+@{
+    ViewData["Title"] = "PrevisaoDoTempoCidade";
+}
+
+<h1>Previsão do tempo para @Model.Nome</h1>
+<h3>UF: @Model.Uf</h3>
+<h3>Data de consulta: @Model.Atualizacao</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Tempo</th>
+            <th scope="col">Maxima</th>
+            <th scope="col">Minima</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var previsao in @Model.Previsoes)
+        {
+            <tr>
+                <th scope="row">@previsao.Dia.ToString("dd/MM/yyyy")</th>
+                <td>@previsao.DescricaoTempo</td>
+                <td>@previsao.Maxima</td>
+                <td>@previsao.Minima</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
